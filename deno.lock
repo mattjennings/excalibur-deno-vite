@@ -4,17 +4,24 @@
     "jsr:@adam/confetti@*": "2.0.0",
     "jsr:@denosaurs/plug@^1.0.5": "1.0.6",
     "jsr:@hono/hono@4.6.19": "4.6.19",
+    "jsr:@justbe/webview@*": "0.0.17",
+    "jsr:@sigmasd/webview-deno@*": "2.3.0",
     "jsr:@std/assert@0.221": "0.221.0",
     "jsr:@std/encoding@0.221": "0.221.0",
     "jsr:@std/fmt@0.221": "0.221.0",
     "jsr:@std/fs@0.221": "0.221.0",
+    "jsr:@std/fs@^1.0.3": "1.0.4",
     "jsr:@std/path@0.221": "0.221.0",
+    "jsr:@std/path@^1.0.6": "1.0.8",
+    "jsr:@std/ulid@1": "1.0.0",
     "jsr:@webview/webview@*": "0.8.0",
     "npm:@deno/vite-plugin@1": "1.0.2_vite@6.0.7",
     "npm:@types/node@*": "22.5.4",
     "npm:create-hono@*": "0.14.3",
+    "npm:type-fest@^4.26.1": "4.33.0",
     "npm:vite@*": "6.0.7",
-    "npm:vite@^6.0.1": "6.0.7"
+    "npm:vite@^6.0.1": "6.0.7",
+    "npm:zod@^3.23.8": "3.24.1"
   },
   "jsr": {
     "@adam/confetti@2.0.0": {
@@ -25,12 +32,25 @@
       "dependencies": [
         "jsr:@std/encoding",
         "jsr:@std/fmt",
-        "jsr:@std/fs",
-        "jsr:@std/path"
+        "jsr:@std/fs@0.221",
+        "jsr:@std/path@0.221"
       ]
     },
     "@hono/hono@4.6.19": {
       "integrity": "5ba1bd0ef74449c0a647f029e29896776c30fb64aefbcef8724af4ce4846791b"
+    },
+    "@justbe/webview@0.0.17": {
+      "integrity": "fa97da988461c4a07129470bbbedb87671644777671c270cb89e756902f00eec",
+      "dependencies": [
+        "jsr:@std/fs@^1.0.3",
+        "jsr:@std/path@^1.0.6",
+        "jsr:@std/ulid",
+        "npm:type-fest",
+        "npm:zod"
+      ]
+    },
+    "@sigmasd/webview-deno@2.3.0": {
+      "integrity": "74be923d4187b602994767c577d45d9f196aa0ce5f6fa373901327112b0d8130"
     },
     "@std/assert@0.221.0": {
       "integrity": "a5f1aa6e7909dbea271754fd4ab3f4e687aeff4873b4cef9a320af813adb489a"
@@ -45,7 +65,13 @@
       "integrity": "028044450299de8ed5a716ade4e6d524399f035513b85913794f4e81f07da286",
       "dependencies": [
         "jsr:@std/assert",
-        "jsr:@std/path"
+        "jsr:@std/path@0.221"
+      ]
+    },
+    "@std/fs@1.0.4": {
+      "integrity": "2907d32d8d1d9e540588fd5fe0ec21ee638134bd51df327ad4e443aaef07123c",
+      "dependencies": [
+        "jsr:@std/path@^1.0.6"
       ]
     },
     "@std/path@0.221.0": {
@@ -53,6 +79,12 @@
       "dependencies": [
         "jsr:@std/assert"
       ]
+    },
+    "@std/path@1.0.8": {
+      "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
+    },
+    "@std/ulid@1.0.0": {
+      "integrity": "d41c3d27a907714413649fee864b7cde8d42ee68437d22b79d5de4f81d808780"
     },
     "@webview/webview@0.8.0": {
       "integrity": "5fc571eac35026e8b5efd2bb6f483c2b4e3925e2244e9a9a66b0bc90bdef4983",
@@ -288,6 +320,9 @@
     "source-map-js@1.2.1": {
       "integrity": "sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA=="
     },
+    "type-fest@4.33.0": {
+      "integrity": "sha512-s6zVrxuyKbbAsSAD5ZPTB77q4YIdRctkTbJ2/Dqlinwz+8ooH2gd+YA7VA6Pa93KML9GockVvoxjZ2vHP+mu8g=="
+    },
     "undici-types@6.19.8": {
       "integrity": "sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw=="
     },
@@ -299,9 +334,19 @@
         "postcss",
         "rollup"
       ]
+    },
+    "zod@3.24.1": {
+      "integrity": "sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A=="
     }
   },
+  "redirects": {
+    "https://deno.land/x/webview/mod.ts": "https://deno.land/x/webview@0.8.1/mod.ts"
+  },
   "remote": {
+    "https://deno.land/x/webview@0.8.1/deno.json": "4651eca7ce6639d14b7bfb28e940f6e118e915a8003757193da2d9e9f47defc7",
+    "https://deno.land/x/webview@0.8.1/mod.ts": "281b770b148b97ad17f675e7a1dff9f5d13b879d08c611c133391d5a45a791c0",
+    "https://deno.land/x/webview@0.8.1/src/ffi.ts": "df03bbb82136deaeafd9c7938c79006f6128e17393c9da0e34cd21434ae96d42",
+    "https://deno.land/x/webview@0.8.1/src/webview.ts": "86b778e001cbfb8dc40f7bd806b7543e59853026f18550c4cd517930c2accf1c",
     "https://esm.sh/excalibur@0.30.3": "011dbbf35b2ca3f35a60636bcc5909fe933a767eed65c88a6d3d1ec7403af47e",
     "https://esm.sh/excalibur@0.30.3/denonext/excalibur.mjs": "6507398107af89c650de529d0a03f2a058496d0be0c296fb15ffc49cd76dd56a"
   },
