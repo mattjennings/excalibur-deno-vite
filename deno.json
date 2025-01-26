@@ -12,11 +12,11 @@
     "webview": "DENO_ENV=development deno run --unstable -A ./webview.ts",
     "build:web": "DENO_ENV=production deno run -A --node-modules-dir npm:vite build",
     "build:mac": {
-      "command": "deno compile --unstable -A --target aarch64-apple-darwin --output dist/mac/game --include ./webview-server.ts --include dist/web ./webview.ts",
+      "command": "deno compile --unstable -A --target aarch64-apple-darwin --output dist/mac/game --include dist/web ./webview.ts",
       "dependencies": ["build:web"]
     },
     "build:windows": {
-      "command": "deno compile --unstable -A --target x86_64-pc-windows-msvc --output dist/windows/game --include ./webview-server.ts --include dist/web ./webview.ts",
+      "command": "deno compile --unstable -A --target x86_64-pc-windows-msvc --output dist/windows/game --include dist/web ./webview.ts",
       "dependencies": ["build:web"]
     },
     "serve": "deno run --allow-net --allow-read jsr:@std/http@1/file-server dist/"
