@@ -1,8 +1,24 @@
 {
   "tasks": {
-    "dev": "deno run -A --node-modules-dir npm:vite",
-    "build": "deno run -A --node-modules-dir npm:vite build",
-    "preview": "deno run -A --node-modules-dir npm:vite preview",
+    "dev": {
+      "command": "",
+      "dependencies": ["vite"]
+    },
+    "dev:webview": {
+      "command": "",
+      "dependencies": ["vite", "webview"]
+    },
+    "vite": "DENO_ENV=development deno run -A --node-modules-dir npm:vite",
+    "webview": "DENO_ENV=development deno run --unstable -A ./webview.ts",
+    "build:web": "DENO_ENV=production deno run -A --node-modules-dir npm:vite build",
+    "build:mac": {
+      "command": "deno compile --unstable -A --target aarch64-apple-darwin --output dist/mac/game --include ./webview-server.ts --include dist/web ./webview.ts",
+      "dependencies": ["build:web"]
+    },
+    "build:windows": {
+      "command": "deno compile --unstable -A --target x86_64-pc-windows-msvc --output dist/windows/game --include ./webview-server.ts --include dist/web ./webview.ts",
+      "dependencies": ["build:web"]
+    },
     "serve": "deno run --allow-net --allow-read jsr:@std/http@1/file-server dist/"
   },
   "compilerOptions": {
@@ -11,5 +27,6 @@
   "imports": {
     "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.0",
     "vite": "npm:vite@^6.0.1"
-  }
+  },
+  "nodeModulesDir": "auto"
 }

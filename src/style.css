@@ -1,11 +1,13 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;  
-  background-color: black;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;  
 }
 
 #game-container {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  align-items: center;  
 }

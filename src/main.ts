@@ -3,11 +3,11 @@ import * as ex from "https://esm.sh/excalibur@0.30.3";
 
 const game = new ex.Engine({
   resolution: {
-    height: 600,
-    width: 800,
+    width: 1280,
+    height: 720
   },
   canvasElementId: "game",
-  displayMode: ex.DisplayMode.FitScreen,
+  displayMode: ex.DisplayMode.FitContainerAndFill,
 });
 
 const logoImage = new ex.ImageSource("/ex-logo.png");
@@ -19,7 +19,7 @@ game.start(loader)
     class HelloExcalibur extends ex.Actor {
       constructor() {
         super({
-          x: 400,
+          x: 640,
           y: 200,
         });
         this.graphics.use(
